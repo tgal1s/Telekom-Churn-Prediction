@@ -1,0 +1,7 @@
+numpy==2.4.6
+pandas==3.0.6
+pyarrow==26.0.0
+pyspark==4.0.1
+scipy==1.17.1
+xgboost-cpu==3.2.0; platform_system == "Linux" or platform_system == "Windows"
+xgboost==3.2.0; platform_system == "Darwin"

@@ -1,0 +1,37 @@
+{
+  "data_path": "dataset",
+  "output_path": "artifacts",
+  "horizon_days": 30,
+  "window_days": 7,
+  "train_offsets": [14, 21],
+  "test_offsets": [55, 60],
+  "min_coverage": 0.7,
+  "spark": {
+    "master": "local[4]",
+    "settings": {
+      "spark.driver.memory": "2g",
+      "spark.sql.shuffle.partitions": "24",
+      "spark.ui.enabled": "false"
+    }
+  },
+  "max_bytes_per_event": 1000000000,
+  "features": [
+    "cdr_recent", "cdr_prior", "cdr_change", "duration_recent", "traffic_recent",
+    "voice_recent", "tickets_recent", "tickets_prior", "quality_recent",
+    "billing_recent", "quality_prior", "tenure"
+  ],
+  "xgboost_params": {
+    "objective": "binary:logistic",
+    "tree_method": "hist",
+    "device": "cpu",
+    "num_boost_round": 150,
+    "max_depth": 4,
+    "min_child_weight": 20,
+    "eta": 0.05,
+    "lambda": 1,
+    "seed": 42,
+    "nthread": 4
+  },
+  "threshold": 0.15,
+  "top_fraction": 0.1
+}

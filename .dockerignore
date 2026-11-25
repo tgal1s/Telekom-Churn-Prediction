@@ -1,0 +1,6 @@
+.git
+.venv
+.tdg-work
+dataset
+artifacts
+__pycache__
